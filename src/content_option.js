@@ -149,11 +149,6 @@ const contactConfig = {
     YOUR_EMAIL: "sayed.kassem@proton.me",
     YOUR_FONE: "+961-71844608",
     description: "",
-    // creat an emailjs.com account 
-    // check out this tutorial https://www.emailjs.com/docs/examples/reactjs/
-    YOUR_SERVICE_ID: "service_ufkiqt5",
-    YOUR_TEMPLATE_ID: "template_bne4spe",
-    YOUR_USER_ID: "ZUGdKfr4Hcx604cMF",
 };
 
 const socialprofils = {
