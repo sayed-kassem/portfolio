@@ -43,19 +43,15 @@ const skills = [{
     },
     {
         name: "React",
-        value: 85,
+        value: 95,
     },
     {
         name: "Css",
-        value: 80,
+        value: 85,
     },
     {
         name: "Figma",
-        value: 80,
-    },
-    {
-        name: "Jquery",
-        value: 70,
+        value: 85,
     },
     {
         name: "TypeScript",
@@ -68,24 +64,47 @@ const services = [{
         description: "Creating wirefireames & prototypes with Figma. Upholding to the latest practices and design principles.",
     },
     {
-        title: "Mobile Apps",
-        description: "Developing mobile apps with native Android Studio & Kotlin, Jetpack Compose and SDK",
-    },
-    {
         title: "Web Development",
         description: "Building Web Apps and Sites with latest version of React, TailwindCSS and latest React Patterns",
     },
+    {
+        title: "Mobile Apps",
+        description: "Developing mobile apps with native Android Studio & Kotlin, Jetpack Compose and SDK",
+    },
 ];
 
-const dataportfolio = [{
+const dataportfolio = [
+    {
+        img: "/agency.png",
+        title: "Digital Agency",
+        description: "Digital Agency Web Template",
+        link: "https://agency-site-two-zeta.vercel.app",
+        tech: ["React", "JS", "Framer Motion","Responsive Design"],
+        github: "https://github.com/sayed-kassem"
+    },
+    {
+        img: "/lens.png",
+        title: "Lens Portfolio",
+        description: "Photography Web Template",
+        link: "https://lens-portfolio.vercel.app",
+        tech: ["React", "JS", "Framer Motion","Responsive Design"],
+        github: "https://github.com/sayed-kassem"
+    },
+    {
         img: "/music.png",
-        description: "vueJs music player web app",
+        title: "Soundscape",
+        description: "Vue.js music player web app with modern UI and playlist management",
         link: "https://soundscape-nu.vercel.app/",
+        tech: ["Vue.js", "JavaScript", "CSS3", "Web Audio API"],
+        github: "https://github.com/sayed-kassem"
     },
     {
         img: "https://lebanesefestival.ca/wp-content/uploads/2024/06/Lebfest-Logo-1536x781.png",
-        description: "WordPress website for LebaneseFestival in Halifax,Ca",
-        link: "LebaneseFestival.ca",
+        title: "Lebanese Festival",
+        description: "WordPress website for Lebanese Festival in Halifax, Canada",
+        link: "https://LebaneseFestival.ca",
+        tech: ["WordPress", "JS", "MySQL", "Responsive Design"],
+        github: "https://github.com/sayed-kassem"
     },
     // {
     //     img: "https://picsum.photos/400/800/?grayscale",
