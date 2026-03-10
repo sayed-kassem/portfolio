@@ -1,35 +1,59 @@
-### Description
+# Sayed Portfolio v2
 
-A simple portfolio template for developer/designers built with React. 
+A redesigned personal portfolio built with React 18, Lenis smooth scroll, and CSS animations.
 
+## Stack
 
-### Features
+- **React 18** with functional components & hooks
+- **Lenis** — buttery smooth scrolling
+- **React Router v6** — client-side routing with page transitions
+- **React Helmet Async** — document head management
+- **Syne + DM Sans** — Google Fonts pairing
+- **CSS custom properties** — full dark/light theme system
 
-- Fully Responsive
-- Multi-Page Layout
-- Contact Form With FormSpree
-- React-Bootstrap
-- Edit Content From One Place
+## Getting Started
 
-### Setup
+```bash
+# 1. Install dependencies
+npm install
 
-Get the code
+# 2. Start dev server
+npm start
 
-<pre>git clone https://github.com/sayed-kassem/portfolio.git</pre>
- 
-Install required dependencies
+# 3. Build for production
+npm run build
+```
 
-<pre>yarn install</pre>
+## Project Structure
 
+```
+src/
+├── App.js                  # Root app, Lenis init
+├── index.js                # React DOM entry
+├── content_option.js       # All site data (edit this!)
+├── app/
+│   └── index.jsx           # Routes + page transitions
+├── components/
+│   ├── Navbar.jsx          # Fixed nav, theme toggle, mobile menu
+│   └── SocialIcons.jsx     # Floating social links
+├── hooks/
+│   ├── useLenis.js         # Smooth scroll setup
+│   ├── useTheme.js         # Dark/light toggle (persisted)
+│   └── useReveal.js        # IntersectionObserver scroll reveals
+├── pages/
+│   ├── home/               # Hero, services
+│   ├── about/              # Bio, timeline, skill bars
+│   ├── portfolio/          # Project cards grid
+│   └── contact/            # Contact form + info
+└── styles/
+    ├── global.css          # Variables, reset, base, page transitions
+    ├── navbar.css          # Navigation styles
+    ├── home.css            # Hero & home-specific styles
+    └── pages.css           # About, Portfolio, Contact styles
+```
 
-Start the server
+## Customization
 
-<pre>yarn start</pre>
+All content lives in `src/content_option.js` — edit your name, bio, projects, skills, and contact details there.
 
-### More
-
-Modify pages content in  `src/content_option.js`.
-
-### Thanks
-
-If you like this portfolio template don't forget give it a ⭐ 
+To add EmailJS to the contact form, install `@emailjs/browser` and update `src/pages/contact/index.jsx`.

@@ -1,0 +1,208 @@
+/* ── Navbar ──────────────────────────────────────────── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  padding: 0 2.5rem;
+  mix-blend-mode: difference;
+}
+.nav-inner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  font-family: var(--f-display);
+  font-size: 1.4rem;
+  letter-spacing: 0.25em;
+  color: var(--white);
+  background: none;
+  border: none;
+  cursor: none;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.nav-status {
+  font-family: var(--f-pixel);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--grey);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.nav-status-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--white);
+  animation: status-pulse 2s ease-in-out infinite;
+}
+@keyframes status-pulse {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(0.6); }
+}
+
+/* Menu toggle */
+.nav-menu-btn {
+  background: none; border: none;
+  display: flex; flex-direction: column;
+  gap: 5px; padding: 4px;
+  cursor: none;
+  position: relative; z-index: 1002;
+}
+.nav-menu-btn span {
+  display: block;
+  height: 1.5px;
+  background: var(--white);
+  transition: all 0.4s var(--ease);
+}
+.nav-menu-btn span:nth-child(1) { width: 24px; }
+.nav-menu-btn span:nth-child(2) { width: 16px; }
+.nav-menu-btn span:nth-child(3) { width: 20px; }
+.nav-menu-btn.open span:nth-child(1) { width: 22px; transform: translateY(6.5px) rotate(45deg); }
+.nav-menu-btn.open span:nth-child(2) { width: 0; opacity: 0; }
+.nav-menu-btn.open span:nth-child(3) { width: 22px; transform: translateY(-6.5px) rotate(-45deg); }
+
+/* ── Full-screen menu modal ──────────────────────────── */
+.menu-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1001;
+  background: var(--black);
+  display: flex;
+  flex-direction: column;
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 0.8s var(--ease);
+  overflow: hidden;
+}
+.menu-modal.open {
+  clip-path: inset(0 0 0% 0);
+}
+
+/* Dot grid inside modal */
+.menu-modal::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+.menu-modal-inner {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: var(--nav-h) 2.5rem 3rem;
+  gap: 4rem;
+  align-items: end;
+}
+
+/* Big nav links */
+.menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-self: center;
+}
+.menu-link {
+  font-family: var(--f-display);
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  letter-spacing: 0.05em;
+  color: var(--grey-mid);
+  background: none; border: none;
+  text-align: left;
+  cursor: none;
+  line-height: 1.0;
+  padding: 0.15em 0;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s var(--ease);
+  transform: translateY(60px);
+  opacity: 0;
+  transition: transform 0.6s var(--ease), opacity 0.6s var(--ease), color 0.25s;
+}
+.menu-modal.open .menu-link { transform: translateY(0); opacity: 1; }
+.menu-modal.open .menu-link:nth-child(1) { transition-delay: 0.15s; }
+.menu-modal.open .menu-link:nth-child(2) { transition-delay: 0.22s; }
+.menu-modal.open .menu-link:nth-child(3) { transition-delay: 0.29s; }
+.menu-modal.open .menu-link:nth-child(4) { transition-delay: 0.36s; }
+
+.menu-link:hover { color: var(--white); }
+.menu-link .menu-link-num {
+  font-family: var(--f-pixel);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--grey-dim);
+  vertical-align: super;
+  margin-right: 0.5em;
+}
+
+/* Right side of modal */
+.menu-meta {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding-top: 6rem;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.6s var(--ease) 0.4s, transform 0.6s var(--ease) 0.4s;
+}
+.menu-modal.open .menu-meta { opacity: 1; transform: translateX(0); }
+
+.menu-meta-label {
+  font-family: var(--f-pixel);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--grey-dim);
+  margin-bottom: 0.6rem;
+}
+.menu-meta-val {
+  font-family: var(--f-mono);
+  font-size: 0.82rem;
+  color: var(--off-white);
+  font-weight: 300;
+}
+.menu-socials {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.menu-social-link {
+  font-family: var(--f-pixel);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: var(--grey);
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.menu-social-link:hover { color: var(--white); }
+
+.menu-bottom-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  border-top: 1px solid var(--grey-dim);
+  padding-top: 1.5rem;
+  margin-top: auto;
+}
+.menu-bottom-copy {
+  font-family: var(--f-pixel);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  color: var(--grey-dim);
+}
+
+@media (max-width: 768px) {
+  .nav { padding: 0 1.25rem; }
+  .menu-modal-inner { grid-template-columns: 1fr; align-items: start; gap: 2rem; }
+  .menu-meta { padding-top: 1rem; }
+  .menu-link { font-size: clamp(2.5rem, 12vw, 4rem); }
+}
