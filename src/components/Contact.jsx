@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 
+const WEB3FORMS_KEY = process.env.REACT_APP_WEB3FORMS_KEY;
+
 export function Contact() {
   const ref = useScrollReveal({ threshold: 0.08 });
   const [form, setForm]     = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState("");
+  const [isError, setIsError] = useState(false);
   const [sending, setSending] = useState(false);
 
   const set = (e) => setForm({ ...form, [e.target.name]: e.target.value });
@@ -12,10 +15,36 @@ export function Contact() {
   const submit = async (e) => {
     e.preventDefault();
     setSending(true);
-    await new Promise(r => setTimeout(r, 1000));
-    setStatus("MESSAGE_SENT // WILL_RESPOND_SOON");
-    setSending(false);
-    setForm({ name: "", email: "", message: "" });
+    setStatus("");
+    setIsError(false);
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          name:       form.name,
+          email:      form.email,
+          message:    form.message,
+          subject:    `Portfolio contact from ${form.name}`,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setStatus("MESSAGE_SENT // WILL_RESPOND_SOON");
+        setForm({ name: "", email: "", message: "" });
+      } else {
+        throw new Error(data.message || "Submission failed");
+      }
+    } catch (err) {
+      setIsError(true);
+      setStatus("ERROR // CHECK_KEY_IN_.ENV");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -69,7 +98,7 @@ export function Contact() {
               <button type="submit" className="btn-submit" disabled={sending}>
                 {sending ? "SENDING..." : "SEND_MESSAGE →"}
               </button>
-              {status && <span className="form-status">{status}</span>}
+              {status && <span className="form-status" style={{ color: isError ? "#ff4444" : "var(--grey)" }}>{status}</span>}
             </div>
           </form>
         </div>
