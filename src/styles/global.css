@@ -8,6 +8,8 @@
   --white: #ffffff;
   --off-white: #e8e8e8;
   --grey: #888888;
+  --lime: #32ff7e;
+  --orange: #ff9f1a;
   --grey-dim: #333333;
   --grey-mid: #555555;
   --accent: #ffffff;
@@ -142,7 +144,7 @@ button { cursor: none; }
 .section-num {
   font-family: var(--f-pixel);
   font-size: 0.62rem;
-  color: var(--grey-dim);
+  color: var(--orange);
   letter-spacing: 0.15em;
 }
 

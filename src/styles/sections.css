@@ -107,11 +107,11 @@
   font-family: var(--f-pixel);
   font-size: 0.58rem;
   letter-spacing: 0.25em;
-  color: var(--grey-dim);
+  color: var(--white);
 }
 .hero-scroll-line {
   width: 1px; height: 48px;
-  background: linear-gradient(to bottom, var(--grey-dim), transparent);
+  background: linear-gradient(to bottom, var(--off-white), transparent);
   animation: scroll-drop 2s ease-in-out infinite;
 }
 @keyframes scroll-drop {
@@ -157,7 +157,7 @@
   font-family: var(--f-pixel);
   font-size: 0.62rem;
   letter-spacing: 0.2em;
-  color: var(--grey-dim);
+  color: var(--orange);
   flex-shrink: 0;
 }
 @keyframes marquee-scroll {
@@ -217,7 +217,7 @@
   font-family: var(--f-pixel);
   font-size: 0.58rem;
   letter-spacing: 0.2em;
-  color: var(--grey-dim);
+  color: var(--orange);
   margin-bottom: 1rem;
 }
 .about-cell-content {
@@ -279,7 +279,7 @@
   font-family: var(--f-pixel);
   font-size: 0.58rem;
   letter-spacing: 0.2em;
-  color: var(--grey-dim);
+  color: var(--orange);
   margin-bottom: 0.25rem;
 }
 .timeline-role {
@@ -292,7 +292,7 @@
 .timeline-where {
   font-family: var(--f-pixel);
   font-size: 0.58rem;
-  color: var(--grey-mid);
+  color: var(--white);
   letter-spacing: 0.1em;
 }
 
@@ -346,7 +346,7 @@
   font-family: var(--f-pixel);
   font-size: 0.6rem;
   letter-spacing: 0.15em;
-  color: var(--grey-dim);
+  color: var(--orange);
   position: relative; z-index: 1;
   transition: color 0.3s;
   flex-shrink: 0;
@@ -397,7 +397,7 @@
   font-family: var(--f-pixel);
   font-size: 0.6rem;
   letter-spacing: 0.2em;
-  color: var(--grey-dim);
+  color: var(--white);
 }
 
 /* Project row */
@@ -542,7 +542,7 @@
 .pcard-tag {
   font-family: var(--f-pixel);
   font-size: 0.55rem; letter-spacing: 0.12em;
-  color: var(--grey-mid);
+  color: var(--orange);
   border: 1px solid var(--grey-dim);
   padding: 3px 8px;
   transition: color 0.3s, border-color 0.3s;
@@ -622,7 +622,7 @@
 .form-label {
   font-family: var(--f-pixel);
   font-size: 0.58rem; letter-spacing: 0.2em;
-  color: var(--grey-dim);
+  color: var(--white);
 }
 .form-input,
 .form-textarea {
@@ -637,7 +637,7 @@
   transition: border-color 0.3s;
   resize: none;
 }
-.form-input::placeholder, .form-textarea::placeholder { color: var(--grey-dim); }
+.form-input::placeholder, .form-textarea::placeholder { color: var(--white); }
 .form-input:focus, .form-textarea:focus { border-bottom-color: var(--white); }
 .form-textarea { min-height: 100px; }
 .form-submit {
@@ -682,7 +682,7 @@
   font-family: var(--f-pixel);
   font-size: 0.55rem;
   letter-spacing: 0.2em;
-  color: var(--grey-dim);
+  color: var(--white);
 }
 
 @media (max-width: 768px) {

@@ -1,6 +1,6 @@
 /* ── Navbar ──────────────────────────────────────────── */
 .nav {
-  position: fixed;
+  position:relative;
   top: 0; left: 0; right: 0;
   z-index: 1000;
   height: var(--nav-h);
@@ -115,7 +115,7 @@
   font-family: var(--f-display);
   font-size: clamp(3.5rem, 8vw, 7rem);
   letter-spacing: 0.05em;
-  color: var(--grey-mid);
+  color: var(--orange);
   background: none; border: none;
   text-align: left;
   cursor: none;
@@ -139,7 +139,7 @@
   font-family: var(--f-pixel);
   font-size: 0.6rem;
   letter-spacing: 0.2em;
-  color: var(--grey-dim);
+  color: var(--white);
   vertical-align: super;
   margin-right: 0.5em;
 }
@@ -161,7 +161,7 @@
   font-family: var(--f-pixel);
   font-size: 0.6rem;
   letter-spacing: 0.2em;
-  color: var(--grey-dim);
+  color: var(--orange);
   margin-bottom: 0.6rem;
 }
 .menu-meta-val {
@@ -197,7 +197,7 @@
   font-family: var(--f-pixel);
   font-size: 0.58rem;
   letter-spacing: 0.2em;
-  color: var(--grey-dim);
+  color: var(--white);
 }
 
 @media (max-width: 768px) {
